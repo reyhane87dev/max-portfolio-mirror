@@ -1,4 +1,4 @@
-// app/about/page.tsx
+'use client'
 import Intro from "@/feature/about/intro";
 import Childhood from "@/feature/about/childhood";
 import Teenage from "@/feature/about/teenage";
@@ -18,5 +18,6 @@ function page() {
     </div>
   );
 }
+
 
 export default page;
