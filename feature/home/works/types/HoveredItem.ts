@@ -1,0 +1,1 @@
+export type HoveredItem = "OLHA" | "MAX" | "CAPITALS" | "RAINE" | "MOSAIC" | null

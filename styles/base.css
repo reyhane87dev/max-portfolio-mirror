@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateY(100vh);
+}
+
+.transition-text {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.progress-ring {
+  width: 80px;
+  height: 80px;
+}
+
+.ticks line {
+  stroke: black;
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: 50% 50%;
+}
+
+/* .about-loading-screen{
+    @apply bg-dark fixed inset-0 flex justify-center items-center text-white;
+  } */
+
+.work-and-expertise-background {
+  background: url("/works-bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.not-found {
+  background: rgba(0, 0, 0, 0.5), url("/not-found.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+@theme {
+  --color-cream: #dfd0b8;
+  --color-brown: #948979;
+  --color-dark: #0c0d0c;
+  --color-navy-blue: #222831;
+  --color-light-gray: #d3d3d3;
+
+  --breakpoint-2xl: 2000px;
+}
+
+@layer base {
+  nav {
+    @apply flex justify-between  items-center py-6 text-white text-sm;
+    ul {
+      @apply flex gap-8;
+    }
+    .brand {
+      @apply font-bold;
+    }
+    .desktop-menu {
+      @apply hidden sm:flex;
+    }
+    .mobile-menu {
+      @apply bg-yellow-800/60 fixed inset-0 flex-col flex justify-center items-center;
+    }
+  }
+
+  body,
+  html {
+    @apply overflow-x-hidden text-base md:text-lg lg:text-sm;
+  }
+  header {
+    @apply fixed left-0 right-0 top-0 z-[100];
+  }
+  .transition-screen {
+    @apply fixed inset-0 bg-black z-[80] flex justify-center items-center pointer-events-none;
+    span {
+      @apply text-white text-2xl;
+    }
+  }
+  nav,
+  section,
+  footer {
+    @apply px-6 container mx-auto;
+  }
+  section {
+    @apply py-20;
+  }
+
+  .home {
+    .hero {
+      @apply relative h-[100vh];
+      .content {
+        @apply absolute inset-0 justify-center text-white flex items-center text-sm;
+        span {
+          @apply block;
+        }
+      }
+      img {
+        @apply absolute h-full object-cover w-full;
+      }
+    }
+    .signature {
+      @apply bg-[#576255]  h-[100vh];
+      section {
+        @apply relative flex flex-col justify-between h-[100vh];
+      }
+      .content {
+        @apply flex flex-col justify-center items-center pt-[7.5rem] h-[60vh];
+        span {
+          @apply inline-block;
+        }
+        svg {
+          @apply sm:-mr-50 mr-20 -mt-15 scale-[0.5] lg:scale-[0.8];
+        }
+      }
+      .edition-counter {
+        @apply relative;
+        .edition-number {
+          @apply absolute inset-0 flex justify-center items-center;
+        }
+      }
+    }
+    .interduction {
+      @apply bg-dark;
+      .top {
+        @apply px-4 absolute z-90 top-15 flex justify-between left-0 right-0;
+      }
+      section {
+        @apply h-[100vh] relative text-gray-500;
+      }
+      .bottom {
+        @apply flex justify-center sm:justify-between absolute left-0 right-0 bottom-10 px-4;
+      }
+      .content-container {
+        @apply absolute  flex justify-center items-center inset-0;
+      }
+      .background-text {
+        @apply lg:flex hidden  absolute text-[9rem] text-black font-bold  justify-center items-center inset-0;
+        span {
+          @apply absolute;
+        }
+      }
+      .content {
+        @apply w-[15rem] sm:w-[25rem] flex flex-col gap-6 text-white items-center text-center;
+      }
+    }
+    .awards {
+      @apply bg-[var(--color-light)];
+      section {
+        @apply relative;
+      }
+      .large-number {
+        @apply absolute text-[14rem] md:text-[20rem] font-bold right-6 -top-10 text-white;
+      }
+      p {
+        @apply absolute right-5 sm:top-[7rem] top-[18.75rem] text-sm sm:text-right text-center lg:text-lg;
+      }
+      .title {
+        @apply sm:text-6xl text-xl mt-[7.5rem] lg:mt-0;
+        span {
+          @apply lg:ml-[17.5rem] sm:ml-[10rem] ml-[2.5rem] block absolute;
+        }
+      }
+      ul {
+        @apply lg:mt-[12.5rem] mt-[15rem] text-xs md:text-xl lg:text-sm lg:ml-[17.5rem] sm:ml-[10rem];
+        li {
+          @apply border-b grid grid-cols-3 pb-1 pt-4 border-black hover:bg-white/20 duration-500;
+        }
+      }
+    }
+    .works {
+      section {
+        @apply pb-0;
+      }
+      h2 {
+        @apply text-2xl pt-20 lg:hidden;
+      }
+      .content-container {
+        @apply relative h-[100vh]  w-full;
+        .content {
+          @apply py-20 lg:py-0 absolute inset-0 top-30;
+
+          .work-title-row {
+            @apply flex  flex-col lg:flex-row justify-between lg:gap-4 lg:py-20;
+          }
+          .last-work-title-row {
+            @apply flex lg:justify-center items-center lg:py-20;
+          }
+          .work-title-row div,
+          .last-work-title-row div {
+            @apply grid grid-cols-3 lg:grid-cols-1 cursor-pointer w-full lg:w-auto hover:text-slate-400 mb-16 lg:mb-0 border-b-2 border-slate-300 lg:border-transparent pb-2 flex duration-400 hover:border-slate-400;
+          }
+          /*case style*/
+          .work-title-row div .case,
+          .last-work-title-row div .case {
+            @apply text-slate-400 text-sm;
+          }
+          /*svg and case*/
+          .work-title-row div .case,
+          .work-title-row div svg,
+          .last-work-title-row div svg,
+          .last-work-title-row div .case {
+            @apply lg:hidden text-nowrap;
+          }
+          /*all the spans*/
+          .work-title-row div span,
+          .last-work-title-row div span {
+            @apply text-nowrap;
+          }
+          /*svg icons*/
+          .work-title-row div svg,
+          .last-work-title-row div svg {
+            @apply ml-auto;
+          }
+        }
+        .work-image-container {
+          @apply absolute hidden lg:flex inset-0 top-30  justify-center items-center bottom-60;
+        }
+      }
+    }
+    .expertise {
+      @apply text-white;
+      .pill-container {
+        @apply flex flex-col gap-4;
+        div {
+          @apply flex flex-col md:flex-row gap-6 justify-center items-center;
+        }
+      }
+      .bottom {
+        @apply pt-20 sm:pt-0 text-xl sm:text-sm;
+      }
+      .skills {
+        @apply items-center flex md:flex-row flex-col gap-4 md:gap-10 text-sm py-20 lg:text-base justify-center;
+      }
+      .tools {
+        @apply text-center mt-[7.5rem] text-xs;
+      }
+    }
+
+    .contact {
+      .black-bar {
+        @apply bg-black h-[1px] w-60;
+      }
+      .non-selected-pill {
+        @apply cursor-pointer px-6 py-2 hover:bg-white/20 rounded-2xl;
+      }
+      .form-container {
+        @apply flex flex-col sm:mx-[10rem]  lg:mx-[20rem] items-center mt-[7.5rem] gap-6;
+        input,
+        textarea {
+          @apply border-0 border-b py-4 focus:outline-0 placeholder:text-black block w-full;
+        }
+      }
+    }
+  }
+
+  footer {
+    @apply pt-30;
+    .name {
+      @apply text-4xl text-nowrap md:text-6xl font-bold text-center mt-10;
+    }
+    .social-media {
+      @apply flex justify-center items-center gap-6 mt-5;
+    }
+    .social-media li {
+      @apply border-b-1 border-slate-700 hover:border-transparent duration-400 cursor-pointer;
+    }
+    .section-links {
+      @apply flex justify-center items-center gap-6;
+    }
+    .email {
+      @apply text-sm md:text-2xl font-bold text-center my-10;
+    }
+    .job {
+      @apply text-center text-3xl lg:text-7xl text-gray-800 font-bold;
+    }
+    .bottom {
+      @apply flex justify-between py-10 relative;
+      p {
+        @apply text-[6px];
+      }
+      .design {
+        @apply absolute inset-0 hidden lg:block py-10 text-center;
+      }
+    }
+  }
+
+  .about {
+    @apply bg-dark text-white;
+    .back-button-container {
+      @apply fixed top-16 left-0 right-0 container mx-auto px-4 z-60;
+      button {
+        @apply text-slate-500 cursor-pointer flex gap-4;
+      }
+    }
+    .intro {
+      @apply min-h-[100vh] pt-40 flex flex-col justify-center items-center;
+      h2 {
+        @apply text-2xl text-center md:text-5xl mt-30 mb-20;
+      }
+      img {
+        @apply w-40 h-60;
+      }
+      p {
+        @apply mt-10;
+      }
+    }
+    .childhood {
+      @apply py-30 pb-50;
+      .content {
+        @apply grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-8;
+        li {
+          @apply flex gap-4;
+          h4 {
+            @apply text-slate-500 mb-5;
+          }
+          p span {
+            @apply inline-block ml-10;
+          }
+        }
+      }
+    }
+    .last {
+      @apply relative h-[100vh];
+      .background-text {
+        @apply absolute inset-0 top-0 text-center text-[13rem] flex justify-center items-center font-bold text-slate-800;
+      }
+      .image-container {
+        @apply absolute inset-0 flex justify-center items-center;
+      }
+      .content {
+        @apply absolute inset-0 py-20 lg:top-50 flex lg:flex-row flex-col lg:py-0 justify-between items-center;
+      }
+    }
+  }
+  .not-found {
+    .message {
+      @apply text-3xl text-center;
+    }
+    .top {
+      @apply flex-col flex text-center text-xs;
+    }
+  }
+}

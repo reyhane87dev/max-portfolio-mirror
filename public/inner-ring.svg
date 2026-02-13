@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xml:space="preserve">
+  <defs>
+    <path id="circle3" d="M250,250 m-140,0 a140,140 0 1,1 280,0 a140,140 0 1,1 -280,0" />
+  </defs>
+  <text fill="#626361" font-size="12" font-family="monospace" letter-spacing="4" text-anchor="middle">
+    <textPath href="#circle3" startOffset="50%">
+      T E N D D E V ✶ T I C R E A T I V E ✶ E N D 0 2 4 ✦ D E V E ◦ 9 F R O N T
+    </textPath>
+  </text>
+</svg>

@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer components {
+  .black-underline {
+    @apply border-b-1 border-black hover:border-transparent duration-500 cursor-pointer;
+  }
+  .white-filled-pill {
+    @apply bg-white py-2 px-6 rounded-2xl cursor-pointer;
+  }
+
+  .white-ball {
+    @apply w-1 rounded-full h-1 bg-black block opacity-0;
+  }
+  .pill {
+    @apply border border-black py-1 px-4 rounded-2xl flex gap-2 items-center;
+  }
+  .vertical-bar{
+    @apply w-1 h-10 bg-gray-500 ml-auto mt-5 sm:block hidden
+  }
+  .horizontal-bar{
+    @apply w-10 h-1 bg-gray-500 sm:block hidden
+  }
+
+}
+

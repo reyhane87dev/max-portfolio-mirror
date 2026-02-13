@@ -1,0 +1,1 @@
+export type Budget = "5k-10k" | "10k-20k" | "more"

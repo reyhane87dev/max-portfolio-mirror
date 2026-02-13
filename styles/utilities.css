@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@layer utilities {
+  .flex-between {
+    @apply flex justify-between
+  }
+  .flex-col-center{
+    @apply flex flex-col justify-center items-center
+  }
+  .flex-center {
+    @apply flex justify-center items-center
+  }
+}
